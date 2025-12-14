@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Bible Verse - Jehovah's Witnesses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #1a2a6a, #b21f1f, #2a4d69);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            padding: 30px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #b21f1f;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: #1a2a6a;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b21f1f;
+            font-weight: 600;
+        }
+        
+        .verse-card {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #b21f1f;
+        }
+        
+        .verse-reference {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a2a6a;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .verse-reference i {
+            margin-right: 10px;
+            color: #b21f1f;
+        }
+        
+        .verse-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            color: #1a2a6a;
+            margin: 25px 0 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #b21f1f;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: #b21f1f;
+        }
+        
+        .section-content {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+        }
+        
+        .daily-application {
+            background: linear-gradient(to bottom, #fff8e8, #f5f5dc);
+            border-left: 5px solid #1a2a6a;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: #b21f1f;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .refresh-btn {
+            background: #b21f1f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .refresh-btn:hover {
+            background: #1a2a6a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .refresh-btn i {
+            margin-left: 8px;
+        }
+        
+        .date-display {
+            background: rgba(26, 42, 106, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 600;
+            color: #1a2a6a;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .verse-text {
+                font-size: 1.3rem;
+            }
+            
+            .verse-reference {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Daily Bible Verse</h1>
+            <div class="subtitle">New World Translation - Jehovah's Witnesses</div>
+            <div class="date-display" id="currentDate"></div>
+        </header>
+        
+        <main>
+            <section class="verse-card">
+                <div class="verse-reference">
+                    <i class="fas fa-book-open"></i>
+                    <span id="verseReference"></span>
+                </div>
+                <div class="verse-text" id="verseText"></div>
+            </section>
+            
+            <section class="explanation">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Explanation
+                </h2>
+                <div class="section-content" id="explanationText"></div>
+            </section>
+            
+            <section class="daily-application">
+                <h2 class="section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Daily Application
+                </h2>
+                <div class="section-content" id="applicationText"></div>
+            </section>
+            
+            <div style="text-align: center;">
+                <button class="refresh-btn" id="refreshBtn">
+                    New Verse
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>Verse from the New World Translation (NWT) - Used by Jehovah's Witnesses</p>
+            <p>Made with <i class="fas fa-heart" style="color:#b21f1f;"></i> for spiritual growth | 
+            <a href="#" id="aboutLink">About This Project</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Database of verses with explanations and applications
+        const verses = [
+            {
+                reference: "John 3:16",
+                text: "For God loved the world so much that he gave his only begotten Son, so that everyone exercising faith in him might not be destroyed but have everlasting life.",
+                explanation: "This verse beautifully explains God's motivation for sending Jesus: love. It highlights the magnitude of His love ('so much') and the gift of His Son. It also emphasizes the requirement for salvation: faith in Jesus Christ.",
+                application: "Take time today to appreciate God's love for you. Consider how you can demonstrate your faith through obedience and love for others."
+            },
+            {
+                reference: "Isaiah 41:10",
+                text: "Do not be afraid, for I am with you; do not stare anxiously about you, for I am your God. I will fortify you. I will help you. I will uphold you with my own right hand of righteousness.",
+                explanation: "This promise from God through Isaiah reassures us of His constant presence and support. The phrases 'I am with you' and 'I will help you' appear twice for emphasis, showing His unwavering commitment to His servants.",
+                application: "When facing challenges today, consciously place your trust in God's promise. Replace anxious thoughts with reminders of His presence and support."
+            },
+            {
+                reference: "Matthew 5:5",
+                text: "Happy are the mild-tempered ones, since they will inherit the earth.",
+                explanation: "Jesus begins the Beatitudes with this surprising declaration. The 'mild-tempered' (or 'meek' in other translations) are not weak but have strength under control, demonstrating humility and trust in God's timing.",
+                application: "Look for opportunities today to respond to challenges with mildness rather than anger or retaliation, trusting that God will handle the situation."
+            },
+            {
+                reference: "Philippians 4:6-7",
+                text: "Do not be anxious about anything, but in everything by prayer and supplication along with thanksgiving let your petitions be made known to God. And the peace of God that surpasses all understanding will be guarding your hearts and your mental powers by means of Christ Jesus.",
+                explanation: "Paul provides a powerful antidote to anxiety: prayer combined with thanksgiving. He assures us that God's peace will protect our hearts and minds in a way that transcends human understanding.",
+                application: "When anxious thoughts arise, pause for prayer. Express gratitude first, then make your requests known to God, trusting in His surpassing peace."
+            },
+            {
+                reference: "1 John 4:7-8",
+                text: "Beloved ones, let us love one another, because love is from God. Everyone who loves has been born from God and knows God. The one who does not love has not come to know God, because God is love.",
+                explanation: "John emphasizes that love originates with God and defines His very nature. Our ability to love others demonstrates our relationship with God and reflects His character.",
+                application: "Look for specific ways to express love today - through kind words, helpful actions, or simply spending time with someone who needs companionship."
+            },
+            {
+                reference: "Psalm 37:4",
+                text: "Also, find your delight in Jehovah, and he will give you the desires of your heart.",
+                explanation: "This verse from Psalm 37 connects our delighting in God with Him granting our desires. When our primary joy is in our relationship with God, our desires align with His will.",
+                application: "Spend time in prayer and Bible reading today. As you draw closer to God, examine whether your desires are changing to align with His purposes."
+            },
+            {
+                reference: "Ephesians 4:26",
+                text: "Be wrathful, yet do not sin; let the sun not set upon your cause for anger.",
+                explanation: "Paul acknowledges that anger may arise, but instructs us not to let it lead to sin or persist beyond the day. This requires prompt resolution of conflicts.",
+                application: "If you're holding onto anger today, take steps to resolve it before sunset. Either address the issue directly or release the anger through forgiveness."
+            }
+        ];
+        
+        // DOM elements
+        const verseReference = document.getElementById('verseReference');
+        const verseText = document.getElementById('verseText');
+        const explanationText = document.getElementById('explanationText');
+        const applicationText = document.getElementById('applicationText');
+        const currentDate = document.getElementById('currentDate');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const aboutLink = document.getElementById('aboutLink');
+        
+        // Display current date
+        function displayDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            currentDate.textContent = now.toLocaleDateString('en-US', options);
+        }
+        
+        // Get a random verse from the array
+        function getRandomVerse() {
+            const randomIndex = Math.floor(Math.random() * verses.length);
+            return verses[randomIndex];
+        }
+        
+        // Display a verse
+        function displayVerse(verse) {
+            verseReference.textContent = verse.reference;
+            verseText.textContent = verse.text;
+            explanationText.textContent = verse.explanation;
+            applicationText.textContent = verse.application;
+        }
+        
+        // Event Listeners
+        refreshBtn.addEventListener('click', () => {
+            const verse = getRandomVerse();
+            displayVerse(verse);
+            
+            // Add animation effect
+            const verseCard = document.querySelector('.verse-card');
+            verseCard.style.opacity = '0';
+            verseCard.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                verseCard.style.transition = 'all 0.5s ease';
+                verseCard.style.opacity = '1';
+                verseCard.style.transform = 'translateY(0)';
+            }, 100);
+        });
+        
+        aboutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('This daily Bible verse application uses verses from the New World Translation (NWT), which is the Bible translation used by Jehovah\'s Witnesses. Each day you receive a verse with an explanation and practical application for your daily life.');
+        });
+        
+        // Initialize
+        displayDate();
+        const initialVerse = getRandomVerse();
+        displayVerse(initialVerse);
+    </script>
+</body>
+</html>
