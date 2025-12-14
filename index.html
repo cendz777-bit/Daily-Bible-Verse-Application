@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Bible Verse - Jehovah's Witnesses</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Daily Scripture - New World Translation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -14,186 +14,381 @@
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
-            background: linear-gradient(135deg, #1a2a6a, #b21f1f, #2a4d69);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #333;
-            line-height: 1.6;
+            animation: gradientFlow 20s ease infinite;
+            color: #2d3748;
+            line-height: 1.8;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
         }
         
-        @keyframes gradientBG {
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: backgroundMove 30s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
         
+        @keyframes backgroundMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.3), 0 20px 60px rgba(0, 0, 0, 0.15); }
+            50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.5), 0 25px 70px rgba(0, 0, 0, 0.2); }
+        }
+        
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            padding: 30px;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            position: relative;
+            animation: fadeInUp 0.8s ease, glow 4s ease-in-out infinite;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
         }
         
         header {
             text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #b21f1f;
+            padding: 50px 40px 35px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+            position: relative;
         }
         
         h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            color: #1a2a6a;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
         
         .subtitle {
-            font-size: 1.2rem;
-            color: #b21f1f;
-            font-weight: 600;
-        }
-        
-        .verse-card {
-            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-            border-radius: 10px;
-            padding: 25px;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #b21f1f;
-        }
-        
-        .verse-reference {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #1a2a6a;
+            font-size: 1.1rem;
+            color: #718096;
+            font-weight: 500;
+            letter-spacing: 0.5px;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .verse-reference i {
-            margin-right: 10px;
-            color: #b21f1f;
-        }
-        
-        .verse-text {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-            color: #333;
-            line-height: 1.4;
-        }
-        
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            color: #1a2a6a;
-            margin: 25px 0 15px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #b21f1f;
-            display: flex;
-            align-items: center;
-        }
-        
-        .section-title i {
-            margin-right: 10px;
-            color: #b21f1f;
-        }
-        
-        .section-content {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-        }
-        
-        .daily-application {
-            background: linear-gradient(to bottom, #fff8e8, #f5f5dc);
-            border-left: 5px solid #1a2a6a;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .footer a {
-            color: #b21f1f;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        
-        .refresh-btn {
-            background: #b21f1f;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .refresh-btn:hover {
-            background: #1a2a6a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .refresh-btn i {
-            margin-left: 8px;
         }
         
         .date-display {
-            background: rgba(26, 42, 106, 0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+            padding: 8px 24px;
+            border-radius: 25px;
             display: inline-block;
-            margin-top: 10px;
             font-weight: 600;
-            color: #1a2a6a;
+            color: #667eea;
+            font-size: 0.95rem;
+            border: 1px solid rgba(102, 126, 234, 0.2);
         }
         
-        @media (max-width: 600px) {
+        main {
+            padding: 40px;
+        }
+        
+        .verse-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.03), rgba(240, 147, 251, 0.03));
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .verse-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 150px;
+            font-family: 'Playfair Display', serif;
+            color: rgba(102, 126, 234, 0.08);
+            line-height: 1;
+        }
+        
+        .verse-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+        
+        .verse-reference {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .verse-reference i {
+            margin-right: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.4rem;
+        }
+        
+        .verse-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            line-height: 1.8;
+            color: #2d3748;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .section-title i {
+            margin-right: 12px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        
+        .explanation .section-title i {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .application .section-title i {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+        }
+        
+        .section-content {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 35px;
+        }
+        
+        .refresh-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .refresh-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .refresh-btn:hover::before {
+            left: 100%;
+        }
+        
+        .refresh-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        .refresh-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .refresh-btn i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .refresh-btn:hover i {
+            transform: rotate(180deg);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 40px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+            color: #718096;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        footer p {
+            margin: 8px 0;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #764ba2;
+        }
+        
+        footer i.fa-heart {
+            color: #f5576c;
+            animation: heartbeat 1.5s ease infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.15); }
+            50% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
             .container {
-                padding: 20px;
+                border-radius: 25px;
+            }
+            
+            header {
+                padding: 40px 25px 30px;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+            
+            main {
+                padding: 25px;
+            }
+            
+            .verse-card {
+                padding: 25px;
             }
             
             .verse-text {
-                font-size: 1.3rem;
+                font-size: 1.35rem;
+                padding: 20px;
             }
             
             .verse-reference {
-                font-size: 1.2rem;
+                font-size: 1.35rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .refresh-btn {
+                padding: 14px 35px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -201,8 +396,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>Daily Bible Verse</h1>
-            <div class="subtitle">New World Translation - Jehovah's Witnesses</div>
+            <h1>Daily Scripture</h1>
+            <div class="subtitle">New World Translation</div>
             <div class="date-display" id="currentDate"></div>
         </header>
         
@@ -215,39 +410,38 @@
                 <div class="verse-text" id="verseText"></div>
             </section>
             
-            <section class="explanation">
+            <section class="section explanation">
                 <h2 class="section-title">
-                    <i class="fas fa-info-circle"></i>
-                    Explanation
+                    <i class="fas fa-lightbulb"></i>
+                    Deeper Understanding
                 </h2>
                 <div class="section-content" id="explanationText"></div>
             </section>
             
-            <section class="daily-application">
+            <section class="section application">
                 <h2 class="section-title">
-                    <i class="fas fa-lightbulb"></i>
-                    Daily Application
+                    <i class="fas fa-compass"></i>
+                    Apply Today
                 </h2>
                 <div class="section-content" id="applicationText"></div>
             </section>
             
-            <div style="text-align: center;">
+            <div class="btn-container">
                 <button class="refresh-btn" id="refreshBtn">
-                    New Verse
+                    Discover New Verse
                     <i class="fas fa-sync-alt"></i>
                 </button>
             </div>
         </main>
         
-        <footer class="footer">
-            <p>Verse from the New World Translation (NWT) - Used by Jehovah's Witnesses</p>
-            <p>Made with <i class="fas fa-heart" style="color:#b21f1f;"></i> for spiritual growth | 
-            <a href="#" id="aboutLink">About This Project</a></p>
+        <footer>
+            <p>Scripture from the New World Translation</p>
+            <p>Made with <i class="fas fa-heart"></i> for spiritual growth | 
+            <a href="#" id="aboutLink">About</a></p>
         </footer>
     </div>
     
     <script>
-        // Database of verses with explanations and applications
         const verses = [
             {
                 reference: "John 3:16",
@@ -290,10 +484,27 @@
                 text: "Be wrathful, yet do not sin; let the sun not set upon your cause for anger.",
                 explanation: "Paul acknowledges that anger may arise, but instructs us not to let it lead to sin or persist beyond the day. This requires prompt resolution of conflicts.",
                 application: "If you're holding onto anger today, take steps to resolve it before sunset. Either address the issue directly or release the anger through forgiveness."
+            },
+            {
+                reference: "Proverbs 3:5-6",
+                text: "Trust in Jehovah with all your heart and do not lean upon your own understanding. In all your ways take notice of him, and he himself will make your paths straight.",
+                explanation: "This wisdom from Proverbs emphasizes complete trust in God rather than relying solely on human reasoning. When we acknowledge God in every aspect of life, He provides clear direction.",
+                application: "Before making decisions today, pause to seek God's guidance through prayer and reflection on His principles, rather than rushing ahead with your own plans."
+            },
+            {
+                reference: "Matthew 6:33",
+                text: "Keep on, then, seeking first the kingdom and his righteousness, and all these other things will be added to you.",
+                explanation: "Jesus teaches that when we prioritize God's kingdom and righteous standards above all else, He ensures our material needs are met. This requires trust and proper priorities.",
+                application: "Evaluate your priorities today. Are you putting God's interests first, or are material concerns dominating your thoughts and time?"
+            },
+            {
+                reference: "Romans 12:2",
+                text: "And stop being molded by this system of things, but be transformed by making your mind over, so that you may prove to yourselves the good and acceptable and perfect will of God.",
+                explanation: "Paul urges Christians to resist conforming to worldly patterns and instead undergo mental transformation. This renewal allows us to discern and follow God's will more clearly.",
+                application: "Identify one area where you've been influenced by worldly thinking. Spend time meditating on Scripture to renew your perspective in that area."
             }
         ];
         
-        // DOM elements
         const verseReference = document.getElementById('verseReference');
         const verseText = document.getElementById('verseText');
         const explanationText = document.getElementById('explanationText');
@@ -302,20 +513,17 @@
         const refreshBtn = document.getElementById('refreshBtn');
         const aboutLink = document.getElementById('aboutLink');
         
-        // Display current date
         function displayDate() {
             const now = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             currentDate.textContent = now.toLocaleDateString('en-US', options);
         }
         
-        // Get a random verse from the array
         function getRandomVerse() {
             const randomIndex = Math.floor(Math.random() * verses.length);
             return verses[randomIndex];
         }
         
-        // Display a verse
         function displayVerse(verse) {
             verseReference.textContent = verse.reference;
             verseText.textContent = verse.text;
@@ -323,29 +531,40 @@
             applicationText.textContent = verse.application;
         }
         
-        // Event Listeners
         refreshBtn.addEventListener('click', () => {
             const verse = getRandomVerse();
-            displayVerse(verse);
             
-            // Add animation effect
             const verseCard = document.querySelector('.verse-card');
+            const sections = document.querySelectorAll('.section');
+            
             verseCard.style.opacity = '0';
             verseCard.style.transform = 'translateY(20px)';
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+            });
             
             setTimeout(() => {
-                verseCard.style.transition = 'all 0.5s ease';
+                displayVerse(verse);
+                verseCard.style.transition = 'all 0.6s ease';
                 verseCard.style.opacity = '1';
                 verseCard.style.transform = 'translateY(0)';
-            }, 100);
+                
+                sections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.style.transition = 'all 0.6s ease';
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }, 150 * (index + 1));
+                });
+            }, 300);
         });
         
         aboutLink.addEventListener('click', (e) => {
             e.preventDefault();
-            alert('This daily Bible verse application uses verses from the New World Translation (NWT), which is the Bible translation used by Jehovah\'s Witnesses. Each day you receive a verse with an explanation and practical application for your daily life.');
+            alert('This daily scripture application uses verses from the New World Translation (NWT). Each day you receive a verse with deeper understanding and practical application for your daily life. Made with love for spiritual growth.');
         });
         
-        // Initialize
         displayDate();
         const initialVerse = getRandomVerse();
         displayVerse(initialVerse);
